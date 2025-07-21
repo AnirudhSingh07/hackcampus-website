@@ -18,6 +18,7 @@ import {
   Briefcase,
 } from "lucide-react"
 import Link from "next/link"
+import Navbar from "@/components/Navbar"
 
 export default function HomePage() {
   return (
@@ -31,42 +32,6 @@ export default function HomePage() {
       <div className="absolute bottom-1/4 left-1/3 w-40 h-40 bg-green-600 rounded-full blur-3xl opacity-10 animate-pulse delay-2000"></div>
 
       {/* Header */}
-      <header className="absolute top-0 z-50 w-full">
-        <div className="container mx-auto px-6 h-20 flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-6 h-6 bg-green-500 rounded flex items-center justify-center">
-              <Code className="w-4 h-4 text-black" />
-            </div>
-            <span className="text-sm font-mono text-green-400 tracking-wider">HACKCAMPUS</span>
-          </Link>
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link
-              href="/bootcamps"
-              className="text-xs font-mono text-gray-500 hover:text-green-400 transition-colors tracking-wider"
-            >
-              BOOTCAMPS
-            </Link>
-            <Link
-              href="/community"
-              className="text-xs font-mono text-gray-500 hover:text-green-400 transition-colors tracking-wider"
-            >
-              COMMUNITY
-            </Link>
-            <Link
-              href="/events"
-              className="text-xs font-mono text-gray-500 hover:text-green-400 transition-colors tracking-wider"
-            >
-              EVENTS
-            </Link>
-            <Link
-              href="/jobs"
-              className="text-xs font-mono text-gray-500 hover:text-green-400 transition-colors tracking-wider"
-            >
-              JOBS
-            </Link>
-          </nav>
-        </div>
-      </header>
 
       {/* Hero Section */}
       <section className="relative py-20 lg:py-32">

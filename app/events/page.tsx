@@ -10,21 +10,6 @@ export default function EventsPage() {
       {/* Grid Pattern Background */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,0,0.02)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
 
-      {/* Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-gray-900 bg-black/80 backdrop-blur-md">
-        <div className="container mx-auto px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-6 h-6 bg-green-500 rounded flex items-center justify-center">
-              <Code className="w-4 h-4 text-black" />
-            </div>
-            <span className="text-sm font-mono text-green-400 tracking-wider">HACKCAMPUS</span>
-          </Link>
-          <Link href="/" className="flex items-center space-x-2 text-gray-500 hover:text-green-400 transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            <span className="text-xs font-mono tracking-wider">BACK</span>
-          </Link>
-        </div>
-      </header>
 
       <div className="container mx-auto px-6 py-20">
         {/* Page Title */}
