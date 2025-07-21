@@ -6,11 +6,9 @@ const UserSchema = new mongoose.Schema(
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    socialLinks: {
-      twitter: { type: String },
-      linkedin: { type: String },
-      instagram: { type: String },
-    },
+    role: { type: String, required: true },
+    twitterLink : { type: String },
+    telegram: {type: String, required: true},
   },
   { timestamps: true }
 )

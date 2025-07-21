@@ -9,9 +9,9 @@ const JWT_SECRET = process.env.JWT_SECRET || 'hackcampus_secret'
 export async function POST(req: NextRequest) {
   await connectToDatabase()
 
-  const { name, email, password, socialLinks } = await req.json()
-
-  if (!name || !email || !password || !socialLinks) {
+  const { name, email, telegram, password, twitterLink,role } = await req.json()
+  console.log('Received data:', { name, email, telegram, password, twitterLink, role })
+  if (!name || !email || !password || !twitterLink || !role) {
     return NextResponse.json({ error: 'All fields are required.' }, { status: 400 })
   }
 
@@ -26,7 +26,9 @@ export async function POST(req: NextRequest) {
     name,
     email,
     password: hashedPassword,
-    socialLinks,
+    twitterLink,  
+    telegram,
+    role
   })
 
   const token = jwt.sign({ userId: newUser._id }, JWT_SECRET, { expiresIn: '7d' })

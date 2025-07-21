@@ -11,10 +11,11 @@ const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState(''); // for signup only
+  const [name, setName] = useState(''); 
   const [error, setError] = useState('');
-  const [socialLink, setSocialLink] = useState('');
-
+  const [twitterLink, setTwitterLink] = useState('');
+  const [telegram, setTelegram] = useState('');
+  const [role,setRole] = useState('');
 
   useEffect(() => {
     const token = localStorage.getItem('authToken')
@@ -79,9 +80,9 @@ const Navbar = () => {
         name,
         email,
         password,
-        socialLinks: {
-          twitter: socialLink,
-        },
+        twitterLink,
+        role,
+        telegram
       }),
     });
     const data = await res.json();
@@ -143,20 +144,68 @@ const Navbar = () => {
             <form onSubmit={handleLoginSubmit} className="flex flex-col space-y-3">
               <input value={email} onChange={(e) => {setEmail(e.target.value)}} type="email" placeholder="Email" className="border p-2 rounded bg-black border-green-500 text-green-400" required />
               <input type="password" value={password} onChange={(e) => {setPassword(e.target.value)}} placeholder="Password" className="border p-2 rounded bg-black border-green-500 text-green-400" required />
+
               <button type="submit" className="bg-green-500 text-black py-2 rounded">Login</button>
             </form>
           </div>
         ) : (
           <div>
-            <h2 className="text-xl font-bold text-green-500 mb-4">Signup</h2>
-            <form onSubmit={handleSignupSubmit} className="flex flex-col space-y-3">
-              <input value={name}     onChange={(e) => {setName(e.target.value)}} type="text" placeholder="Name" className="border p-2 rounded bg-black border-green-500 text-green-400" required />
-              <input value={email}    onChange={(e) => {setEmail(e.target.value)}} type="email" placeholder="Email" className="border p-2 rounded bg-black border-green-500 text-green-400" required />
-              <input value={password} onChange={(e) => {setPassword(e.target.value)}} type="password" placeholder="Password" className="border p-2 rounded bg-black border-green-500 text-green-400" required />
-              <input value={socialLink}    onChange={(e) => {setSocialLink(e.target.value)}} type="text" placeholder="Twitter Profile Link" className="border p-2 rounded bg-black border-green-500 text-green-400" required />
-              <button type="submit" className="bg-green-500 text-white py-2 rounded">Signup</button>
-            </form>
-          </div>
+  <h2 className="text-xl font-bold text-green-500 mb-4">Signup</h2>
+  <form onSubmit={handleSignupSubmit} className="flex flex-col space-y-3">
+    <input
+      value={name}
+      onChange={(e) => setName(e.target.value)}
+      type="text"
+      placeholder="Name*"
+      className="border p-2 rounded bg-black border-green-500 text-green-400"
+      required
+    />
+    <input
+      value={email}
+      onChange={(e) => setEmail(e.target.value)}
+      type="email"
+      placeholder="Email*"
+      className="border p-2 rounded bg-black border-green-500 text-green-400"
+      required
+    />
+    <input
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      type="password"
+      placeholder="Password*"
+      className="border p-2 rounded bg-black border-green-500 text-green-400"
+      required
+    />
+    <input
+      value={twitterLink}
+      onChange={(e) => setTwitterLink(e.target.value)}
+      type="text"
+      placeholder="Twitter Profile Link"
+      className="border p-2 rounded bg-black border-green-500 text-green-400"
+    />
+    <input
+      value={telegram}
+      onChange={(e) => setTelegram(e.target.value)}
+      type="text"
+      placeholder="Telegram Username (starting with @)*"
+      className="border p-2 rounded bg-black border-green-500 text-green-400"
+      required
+    />
+    <select
+      value={role}
+      onChange={(e) => setRole(e.target.value)}
+      className="border p-2 rounded bg-black border-green-500 text-green-400"
+      required
+    >
+      <option value="">Select Role*</option>
+      <option value="Student">Student</option>
+      <option value="Community Lead">Community</option>
+      <option value="DevRel / Head of ecosystem">DevRel / Head of Ecosystem</option>
+    </select>
+    <button type="submit" className="bg-green-500 text-white py-2 rounded">Signup</button>
+  </form>
+</div>
+
         )}
       </Modal>
     </header>
