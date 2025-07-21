@@ -141,8 +141,8 @@ const Navbar = () => {
           <div>
             <h2 className="text-xl text-green-500 font-bold mb-4">Login</h2>
             <form onSubmit={handleLoginSubmit} className="flex flex-col space-y-3">
-              <input type="email" placeholder="Email" className="border p-2 rounded bg-black border-green-500 text-green-400" required />
-              <input type="password" placeholder="Password" className="border p-2 rounded bg-black border-green-500 text-green-400" required />
+              <input value={email} onChange={(e) => {setEmail(e.target.value)}} type="email" placeholder="Email" className="border p-2 rounded bg-black border-green-500 text-green-400" required />
+              <input type="password" value={password} onChange={(e) => {setPassword(e.target.value)}} placeholder="Password" className="border p-2 rounded bg-black border-green-500 text-green-400" required />
               <button type="submit" className="bg-green-500 text-black py-2 rounded">Login</button>
             </form>
           </div>
