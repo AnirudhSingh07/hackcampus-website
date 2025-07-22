@@ -55,12 +55,13 @@ export default function HomePage() {
               decentralized future
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Button
+              <Button 
                 size="lg"
                 className="bg-green-500 hover:bg-green-400 text-black font-bold px-12 py-4 text-lg shadow-2xl shadow-green-500/25 hover:shadow-green-400/25 transition-all transform hover:scale-105 font-mono tracking-wider"
               >
                 JOIN HACKCAMPUS
               </Button>
+              <Link href="https://t.me/+lXfUskeOZiZhNGZl">
               <Button
                 size="lg"
                 variant="outline"
@@ -68,6 +69,7 @@ export default function HomePage() {
               >
                 EXPLORE COMMUNITY
               </Button>
+              </Link>
             </div>
             <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
               <div className="text-center p-6 border border-gray-800 bg-gray-900/50 backdrop-blur-sm">
@@ -603,7 +605,7 @@ export default function HomePage() {
                 <p className="text-xl mb-8 text-gray-400">
                   Sponsor bootcamps, hire top talent, and build your brand in the Web3 community
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                   <div className="text-center p-6 border border-gray-800 bg-black/50">
                     <div className="text-3xl font-bold mb-2 text-green-400 font-mono">10K+</div>
                     <div className="text-gray-400 font-mono text-sm">ACTIVE STUDENTS</div>
@@ -616,13 +618,13 @@ export default function HomePage() {
                     <div className="text-3xl font-bold mb-2 text-green-400 font-mono">95%</div>
                     <div className="text-gray-400 font-mono text-sm">JOB PLACEMENT RATE</div>
                   </div>
-                </div>
-                <div className="max-w-md mx-auto">
+                </div> */}
+                <div className="max-w-md mx-auto justify-items-center">
                   <div className="flex gap-4 mb-4">
-                    <Input
+                    {/* <Input
                       placeholder="Company email"
                       className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500 font-mono"
-                    />
+                    /> */}
                     <Button className="bg-green-500 text-black hover:bg-green-400 font-bold font-mono tracking-wider">
                       GET STARTED
                     </Button>

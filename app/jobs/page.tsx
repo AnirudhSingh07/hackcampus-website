@@ -29,7 +29,7 @@ export default function JobsPage() {
         {/* Job Listings */}
         <div className="space-y-6 max-w-4xl mx-auto ">
           
-          <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all">
+          {/* <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all">
             <CardContent className="p-8">
               <div className="flex flex-col md:flex-row md:items-start justify-between mb-6">
                 <div className="mb-4 md:mb-0">
@@ -77,7 +77,7 @@ export default function JobsPage() {
                 </Button>
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
 
           {/* <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all">
             <CardContent className="p-8">

@@ -29,17 +29,18 @@ export default function BootcampsPage() {
             COMPREHENSIVE LEARNING PATHS FOR WEB3 MASTERY
           </p>
           
-        </div>
-
-        {showButton && (<Button className="mb-6 ml-[17vw] bg-green-500 hover:bg-green-400 rounded-xl h-[5vh] text-black font-mono font-bold px-8 py-3 tracking-wider">
+          {showButton && (<Button className="mb-6 mt-7 bg-green-500 hover:bg-green-400 rounded-xl h-[5vh] text-black font-mono font-bold px-8 py-3 tracking-wider">
             POST A BOOTCAMP
           </Button>)
         }
+        </div>
+
+        
 
         {/* Bootcamp Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-8 max-w-6xl mx-auto">
           {/* Web3 Fundamentals */}
-          <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all group">
+          {/* <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all group">
             <CardHeader className="pb-4">
               <div className="flex items-center justify-between mb-4">
                 <Badge className="bg-green-500/10 text-green-400 border border-green-500/20 font-mono text-xs tracking-wider">
@@ -68,7 +69,7 @@ export default function BootcampsPage() {
                 ENROLL
               </Button>
             </CardContent>
-          </Card>
+          </Card> */}
 
           {/* Smart Contract Development */}
           {/* <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all group">

@@ -41,25 +41,25 @@ export default function EventsPage() {
                   </Badge>
                   <div className="flex items-center text-xs text-gray-500 font-mono">
                     <Calendar className="w-3 h-3 mr-1" />
-                    MAR 15-17, 2024
+                    Sept, 2025
                   </div>
                 </div>
                 <div className="flex items-center text-xs text-gray-500 font-mono">
                   <MapPin className="w-3 h-3 mr-1" />
-                  MUMBAI, MAHARASHTRA
+                  Delhi
                 </div>
               </div>
-              <h3 className="text-2xl font-mono font-bold text-green-400 mb-4 tracking-wider">WEB3 HACKATHON MUMBAI</h3>
+              <h3 className="text-2xl font-mono font-bold text-green-400 mb-4 tracking-wider">WEB3 INDIA HACKATHON - HACKTOUR IND</h3>
               <p className="text-gray-400 font-mono text-sm mb-6 leading-relaxed">
-                48-HOUR HACKATHON FOCUSED ON DEFI AND NFT INNOVATIONS. BUILD, LEARN, AND WIN AMAZING PRIZES.
+                72-HOUR HACKATHON FOCUSED ON DEFI, DEV TOOLS, WEB3 PROJECTS & INNOVATIONS. BUILD, LEARN, AND WIN AMAZING PRIZES.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button className="bg-green-500 hover:bg-green-400 text-black font-mono font-bold px-8 tracking-wider">
-                  REGISTER NOW
+                  Coming Soon
                 </Button>
-                <Button className="bg-gray-900 hover:bg-gray-800 text-green-400 border border-gray-800 hover:border-green-500/30 font-mono tracking-wider">
+                {/* <Button className="bg-gray-900 hover:bg-gray-800 text-green-400 border border-gray-800 hover:border-green-500/30 font-mono tracking-wider">
                   LEARN MORE
-                </Button>
+                </Button> */}
               </div>
             </CardContent>
           </Card>

@@ -21,7 +21,7 @@ export default function CommunityPage() {
         </div>
 
         {/* Community Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 max-w-4xl mx-auto">
+        {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 max-w-4xl mx-auto">
           <div className="text-center p-8 border border-gray-900 bg-black/50">
             <div className="text-3xl font-mono font-bold text-green-400 mb-2">10K+</div>
             <div className="text-xs font-mono text-gray-500 tracking-wider">ACTIVE MEMBERS</div>
@@ -34,10 +34,10 @@ export default function CommunityPage() {
             <div className="text-3xl font-mono font-bold text-green-400 mb-2">95%</div>
             <div className="text-xs font-mono text-gray-500 tracking-wider">SUCCESS RATE</div>
           </div>
-        </div>
+        </div> */}
 
         {/* Community Testimonials */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-20">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-20">
           <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm">
             <CardContent className="p-6">
               <div className="flex items-center mb-4">
@@ -103,7 +103,7 @@ export default function CommunityPage() {
               </div>
             </CardContent>
           </Card>
-        </div>
+        </div> */}
 
         {/* Join Community CTA */}
         <div className="text-center">
