@@ -38,7 +38,8 @@ const Navbar = () => {
 
       if (!res.ok) {
         const error = await res.json()
-        console.error('Login error:', error)
+        console.log(error.error)
+        setError(error.error);
         return
       }
 
@@ -54,6 +55,7 @@ const Navbar = () => {
  const handleSignupSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
+    console.log(userRole);
     try {
       const res = await fetch('/api/auth/signup', {
         method: 'POST',
@@ -69,12 +71,15 @@ const Navbar = () => {
       })
 
       const data = await res.json()
-      if (!res.ok) throw new Error(data.message || 'Signup failed')
-
+      if (!res.ok)
+      {
+        setError(data.error);
+        return;
+      }
       login(data.token, data.user.role)
       closeModal()
     } catch (err: any) {
-      setError(err.message)
+      console.log(err)
     }
   }
 
@@ -123,7 +128,7 @@ const Navbar = () => {
             <form onSubmit={handleLoginSubmit} className="flex flex-col space-y-3">
               <input value={email} onChange={(e) => {setEmail(e.target.value)}} type="email" placeholder="Email" className="border p-2 rounded bg-black border-green-500 text-green-400" required />
               <input type="password" value={password} onChange={(e) => {setPassword(e.target.value)}} placeholder="Password" className="border p-2 rounded bg-black border-green-500 text-green-400" required />
-
+              <p className="mb-4 justify-center flex text-red-400">{error}</p>
               <button type="submit" className="bg-green-500 text-black py-2 rounded">Login</button>
             </form>
           </div>
@@ -181,6 +186,7 @@ const Navbar = () => {
       <option value="Community Lead">Community</option>
       <option value="DevRel / Head of ecosystem">DevRel / Head of Ecosystem</option>
     </select>
+    <p className="mb-4 justify-center flex text-red-400">{error}</p>
     <button type="submit" className="bg-green-500 text-white py-2 rounded">Signup</button>
   </form>
 </div>
