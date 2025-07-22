@@ -1,3 +1,5 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -19,8 +21,10 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 import Navbar from "@/components/Navbar"
+import { useAuth } from "@/context/AuthContext"
 
 export default function HomePage() {
+  const { openModal } = useAuth()
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Subtle Grid Pattern Background */}
@@ -38,9 +42,14 @@ export default function HomePage() {
         <div className="container mx-auto px-4 lg:px-6 relative">
           <div className="text-center max-w-4xl mx-auto">
             {/* Glowing Green Orb */}
-            <div className="relative mb-12 justify-items-center">
-              
-          <img src="/logohtihti.png" alt="" className='h-[15vh] w-[18vw]' /></div>
+            <div className="relative mb-12 flex justify-center">
+  <img
+    src="/logohtihti.png"
+    alt="Logo"
+    className="h-[10vh] w-auto sm:h-[12vh] md:h-[15vh] max-w-[80%]"
+  />
+</div>
+
 
             <Badge className="mb-6 bg-gray-900 text-green-400 border border-green-500/30 px-4 py-2 font-mono text-xs tracking-wider">
               🚀 POWERED BY HACKTOUR INDIA
@@ -57,6 +66,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Button 
                 size="lg"
+                onClick={() => openModal('signup')}
                 className="bg-green-500 hover:bg-green-400 text-black font-bold px-12 py-4 text-lg shadow-2xl shadow-green-500/25 hover:shadow-green-400/25 transition-all transform hover:scale-105 font-mono tracking-wider"
               >
                 JOIN HACKCAMPUS
@@ -152,7 +162,10 @@ export default function HomePage() {
                 </div>
                 <h3 className="text-2xl font-bold text-green-400 mb-4 font-mono">READY TO START?</h3>
                 <p className="text-gray-400 mb-6">Join thousands of students already building their Web3 future</p>
-                <Button className="bg-green-500 hover:bg-green-400 text-black font-bold px-8 shadow-lg shadow-green-500/25 font-mono tracking-wider">
+                
+                <Button
+                onClick={() => openModal('signup')}
+                className="bg-green-500 hover:bg-green-400 text-black font-bold px-8 shadow-lg shadow-green-500/25 font-mono tracking-wider">
                   GET STARTED TODAY
                 </Button>
               </div>
