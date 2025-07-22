@@ -28,9 +28,7 @@ export default function JobsPage() {
 
         {/* Job Listings */}
         <div className="space-y-6 max-w-4xl mx-auto ">
-          {showButton && <Button className="mb-6 bg-green-500 hover:bg-green-400 rounded-xl h-[5vh] text-black font-mono font-bold px-8 py-3 tracking-wider">
-            POST A JOB
-          </Button>}
+          
           <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all">
             <CardContent className="p-8">
               <div className="flex flex-col md:flex-row md:items-start justify-between mb-6">
@@ -81,7 +79,7 @@ export default function JobsPage() {
             </CardContent>
           </Card>
 
-          <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all">
+          {/* <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all">
             <CardContent className="p-8">
               <div className="flex flex-col md:flex-row md:items-start justify-between mb-6">
                 <div className="mb-4 md:mb-0">
@@ -129,9 +127,9 @@ export default function JobsPage() {
                 </Button>
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
 
-          <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all">
+          {/* <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all">
             <CardContent className="p-8">
               <div className="flex flex-col md:flex-row md:items-start justify-between mb-6">
                 <div className="mb-4 md:mb-0">
@@ -179,7 +177,7 @@ export default function JobsPage() {
                 </Button>
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
         </div>
 
         {/* CTA Section */}
@@ -189,9 +187,9 @@ export default function JobsPage() {
             <p className="text-gray-500 font-mono text-sm mb-8 tracking-wider">
               POST YOUR WEB3 JOBS AND FIND TOP TALENT
             </p>
-            <Button className="bg-green-500 hover:bg-green-400 text-black font-mono font-bold px-12 py-3 tracking-wider">
-              POST A JOB
-            </Button>
+            {showButton && <Button className="mb-6 bg-green-500 hover:bg-green-400 rounded-xl h-[5vh] text-black font-mono font-bold px-8 py-3 tracking-wider">
+            POST A JOB
+          </Button>}
           </div>
         </div>
       </div>

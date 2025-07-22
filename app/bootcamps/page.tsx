@@ -71,7 +71,7 @@ export default function BootcampsPage() {
           </Card>
 
           {/* Smart Contract Development */}
-          <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all group">
+          {/* <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all group">
             <CardHeader className="pb-4">
               <div className="flex items-center justify-between mb-4">
                 <Badge className="bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 font-mono text-xs tracking-wider">
@@ -100,10 +100,10 @@ export default function BootcampsPage() {
                 ENROLL
               </Button>
             </CardContent>
-          </Card>
+          </Card> */}
 
           {/* Developer Relations */}
-          <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all group">
+          {/* <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all group">
             <CardHeader className="pb-4">
               <div className="flex items-center justify-between mb-4">
                 <Badge className="bg-red-500/10 text-red-400 border border-red-500/20 font-mono text-xs tracking-wider">
@@ -132,10 +132,10 @@ export default function BootcampsPage() {
                 ENROLL
               </Button>
             </CardContent>
-          </Card>
+          </Card> */}
 
           {/* Content Creation */}
-          <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all group">
+          {/* <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all group">
             <CardHeader className="pb-4">
               <div className="flex items-center justify-between mb-4">
                 <Badge className="bg-green-500/10 text-green-400 border border-green-500/20 font-mono text-xs tracking-wider">
@@ -164,10 +164,10 @@ export default function BootcampsPage() {
                 ENROLL
               </Button>
             </CardContent>
-          </Card>
+          </Card> */}
 
           {/* DeFi Protocol Development */}
-          <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all group">
+          {/* <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all group">
             <CardHeader className="pb-4">
               <div className="flex items-center justify-between mb-4">
                 <Badge className="bg-red-500/10 text-red-400 border border-red-500/20 font-mono text-xs tracking-wider">
@@ -196,10 +196,10 @@ export default function BootcampsPage() {
                 ENROLL
               </Button>
             </CardContent>
-          </Card>
+          </Card> */}
 
           {/* NFT & Gaming */}
-          <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all group">
+          {/* <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all group">
             <CardHeader className="pb-4">
               <div className="flex items-center justify-between mb-4">
                 <Badge className="bg-yellow-500/10 text-yellow-400 border border-yellow-500/20 font-mono text-xs tracking-wider">
@@ -228,7 +228,7 @@ export default function BootcampsPage() {
                 ENROLL
               </Button>
             </CardContent>
-          </Card>
+          </Card> */}
         </div>
       </div>
     </div>

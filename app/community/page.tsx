@@ -116,7 +116,7 @@ export default function CommunityPage() {
               CONNECT WITH BUILDERS, MENTORS, AND INNOVATORS
             </p>
             <Button className="bg-green-500 hover:bg-green-400 text-black font-mono font-bold px-12 py-3 tracking-wider">
-              JOIN DISCORD
+              JOIN TELEGRAM
             </Button>
           </div>
         </div>

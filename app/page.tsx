@@ -38,10 +38,9 @@ export default function HomePage() {
         <div className="container mx-auto px-4 lg:px-6 relative">
           <div className="text-center max-w-4xl mx-auto">
             {/* Glowing Green Orb */}
-            <div className="relative mb-12">
-              <div className="w-32 h-32 mx-auto bg-green-500 rounded-full blur-xl opacity-60 animate-pulse"></div>
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-green-400 rounded-full shadow-2xl shadow-green-400/50"></div>
-            </div>
+            <div className="relative mb-12 justify-items-center">
+              
+          <img src="/logohtihti.png" alt="" className='h-[15vh] w-[18vw]' /></div>
 
             <Badge className="mb-6 bg-gray-900 text-green-400 border border-green-500/30 px-4 py-2 font-mono text-xs tracking-wider">
               🚀 POWERED BY HACKTOUR INDIA
@@ -60,12 +59,12 @@ export default function HomePage() {
                 size="lg"
                 className="bg-green-500 hover:bg-green-400 text-black font-bold px-12 py-4 text-lg shadow-2xl shadow-green-500/25 hover:shadow-green-400/25 transition-all transform hover:scale-105 font-mono tracking-wider"
               >
-                REGISTER FOR BOOTCAMP
+                JOIN HACKCAMPUS
               </Button>
               <Button
                 size="lg"
                 variant="outline"
-                className="border-2 border-green-500/50 text-green-400 hover:bg-green-500/10 px-12 py-4 text-lg font-mono tracking-wider bg-transparent"
+                className="border-2 border-green-500/50 text-green-400 hover:text-white hover:bg-green-500/10 px-12 py-4 text-lg font-mono tracking-wider bg-transparent"
               >
                 EXPLORE COMMUNITY
               </Button>
@@ -214,17 +213,17 @@ export default function HomePage() {
       </section>
 
       {/* Bootcamp Tracks */}
-      <section id="bootcamps" className="py-20 border-t border-gray-800">
-        <div className="container mx-auto px-4 lg:px-6">
+      {/* <section id="bootcamps" className="py-20 border-t border-gray-800"> */}
+        {/* <div className="container mx-auto px-4 lg:px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold mb-6 text-white font-mono">BOOTCAMP TRACKS</h2>
             <p className="text-lg text-gray-400 max-w-2xl mx-auto">
               Comprehensive learning paths designed to take you from beginner to Web3 professional
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> */}
             {/* Web3 Basics */}
-            <Card className="border border-gray-800 bg-gray-900/50 backdrop-blur-sm hover:border-green-500/50 transition-all group">
+            {/* <Card className="border border-gray-800 bg-gray-900/50 backdrop-blur-sm hover:border-green-500/50 transition-all group">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <Badge className="bg-green-500/20 text-green-400 border border-green-500/30 font-mono text-xs">
@@ -252,10 +251,10 @@ export default function HomePage() {
                   REGISTER NOW
                 </Button>
               </CardContent>
-            </Card>
+            </Card> */}
 
             {/* Development Track */}
-            <Card className="border border-gray-800 bg-gray-900/50 backdrop-blur-sm hover:border-green-500/50 transition-all group">
+            {/* <Card className="border border-gray-800 bg-gray-900/50 backdrop-blur-sm hover:border-green-500/50 transition-all group">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <Badge className="bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 font-mono text-xs">
@@ -283,10 +282,10 @@ export default function HomePage() {
                   REGISTER NOW
                 </Button>
               </CardContent>
-            </Card>
+            </Card> */}
 
             {/* DevRel Track */}
-            <Card className="border border-gray-800 bg-gray-900/50 backdrop-blur-sm hover:border-green-500/50 transition-all group">
+            {/* <Card className="border border-gray-800 bg-gray-900/50 backdrop-blur-sm hover:border-green-500/50 transition-all group">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <Badge className="bg-red-500/20 text-red-400 border border-red-500/30 font-mono text-xs">
@@ -314,10 +313,10 @@ export default function HomePage() {
                   REGISTER NOW
                 </Button>
               </CardContent>
-            </Card>
+            </Card> */}
 
             {/* Content Creation */}
-            <Card className="border border-gray-800 bg-gray-900/50 backdrop-blur-sm hover:border-green-500/50 transition-all group">
+            {/* <Card className="border border-gray-800 bg-gray-900/50 backdrop-blur-sm hover:border-green-500/50 transition-all group">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <Badge className="bg-green-500/20 text-green-400 border border-green-500/30 font-mono text-xs">
@@ -345,10 +344,10 @@ export default function HomePage() {
                   REGISTER NOW
                 </Button>
               </CardContent>
-            </Card>
+            </Card> */}
 
             {/* DeFi Specialization */}
-            <Card className="border border-gray-800 bg-gray-900/50 backdrop-blur-sm hover:border-green-500/50 transition-all group">
+            {/* <Card className="border border-gray-800 bg-gray-900/50 backdrop-blur-sm hover:border-green-500/50 transition-all group">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <Badge className="bg-red-500/20 text-red-400 border border-red-500/30 font-mono text-xs">
@@ -377,10 +376,10 @@ export default function HomePage() {
                   REGISTER NOW
                 </Button>
               </CardContent>
-            </Card>
+            </Card> */}
 
             {/* NFT & Gaming */}
-            <Card className="border border-gray-800 bg-gray-900/50 backdrop-blur-sm hover:border-green-500/50 transition-all group">
+            {/* <Card className="border border-gray-800 bg-gray-900/50 backdrop-blur-sm hover:border-green-500/50 transition-all group">
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <Badge className="bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 font-mono text-xs">
@@ -408,23 +407,19 @@ export default function HomePage() {
                   REGISTER NOW
                 </Button>
               </CardContent>
-            </Card>
+            </Card> */}
+          {/* </div> */}
+      {/* <div className="text-center mt-12 z-20">
+        <Link href="https://www.hacktour.xyz">
+          <Button className="w-full bg-green-500 hover:bg-green-400 text-black font-bold shadow-lg shadow-green-500/25 font-mono tracking-wider">
+          REGISTER NOW
+          </Button>
+        </Link>
           </div>
-          <div className="text-center mt-12">
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-2 border-green-500/50 text-green-400 hover:bg-green-500/10 px-8 font-mono tracking-wider bg-transparent"
-            >
-              VIEW ALL BOOTCAMPS
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
-          </div>
-        </div>
-      </section>
-
+        </div> */}
+      {/* </section> */}
       {/* Community Testimonials */}
-      <section id="community" className="py-20 border-t border-gray-800">
+      {/* <section id="community" className="py-20 border-t border-gray-800">
         <div className="container mx-auto px-4 lg:px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold mb-6 text-white font-mono">COMMUNITY VOICES</h2>
@@ -503,10 +498,10 @@ export default function HomePage() {
             </Card>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Upcoming Events */}
-      <section id="events" className="py-20 border-t border-gray-800">
+      {/* <section id="events" className="py-20 border-t border-gray-800">
         <div className="container mx-auto px-4 lg:px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold mb-6 text-white font-mono">UPCOMING EVENTS</h2>
@@ -570,10 +565,10 @@ export default function HomePage() {
             </Card>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Partner Showcase */}
-      <section className="py-20 border-t border-gray-800">
+      {/* <section className="py-20 border-t border-gray-800">
         <div className="container mx-auto px-4 lg:px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-5xl font-bold mb-6 text-white font-mono">ECOSYSTEM PARTNERS</h2>
@@ -594,7 +589,7 @@ export default function HomePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Company Sponsorship CTA */}
       <section className="py-20 border-t border-gray-800">

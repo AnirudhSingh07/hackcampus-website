@@ -64,7 +64,7 @@ export default function EventsPage() {
             </CardContent>
           </Card>
 
-          <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all">
+          {/* <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all">
             <CardContent className="p-8">
               <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
                 <div className="flex items-center space-x-4 mb-4 md:mb-0">
@@ -96,39 +96,39 @@ export default function EventsPage() {
                 </Button>
               </div>
             </CardContent>
-          </Card>
+          </Card> */}
 
-          <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all">
-            <CardContent className="p-8">
-              <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
-                <div className="flex items-center space-x-4 mb-4 md:mb-0">
-                  <Badge className="bg-purple-500/10 text-purple-400 border border-purple-500/20 font-mono text-xs tracking-wider">
-                    NETWORKING
-                  </Badge>
+            {/* <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all">
+              <CardContent className="p-8">
+                <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
+                  <div className="flex items-center space-x-4 mb-4 md:mb-0">
+                    <Badge className="bg-purple-500/10 text-purple-400 border border-purple-500/20 font-mono text-xs tracking-wider">
+                      NETWORKING
+                    </Badge>
+                    <div className="flex items-center text-xs text-gray-500 font-mono">
+                      <Calendar className="w-3 h-3 mr-1" />
+                      APR 05, 2024
+                    </div>
+                  </div>
                   <div className="flex items-center text-xs text-gray-500 font-mono">
-                    <Calendar className="w-3 h-3 mr-1" />
-                    APR 05, 2024
+                    <MapPin className="w-3 h-3 mr-1" />
+                    DELHI, NCR
                   </div>
                 </div>
-                <div className="flex items-center text-xs text-gray-500 font-mono">
-                  <MapPin className="w-3 h-3 mr-1" />
-                  DELHI, NCR
+                <h3 className="text-2xl font-mono font-bold text-green-400 mb-4 tracking-wider">WEB3 BUILDERS MEETUP</h3>
+                <p className="text-gray-400 font-mono text-sm mb-6 leading-relaxed">
+                  CONNECT WITH FELLOW BUILDERS, INVESTORS, AND INNOVATORS IN THE WEB3 SPACE.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button className="bg-green-500 hover:bg-green-400 text-black font-mono font-bold px-8 tracking-wider">
+                    REGISTER NOW
+                  </Button>
+                  <Button className="bg-gray-900 hover:bg-gray-800 text-green-400 border border-gray-800 hover:border-green-500/30 font-mono tracking-wider">
+                    LEARN MORE
+                  </Button>
                 </div>
-              </div>
-              <h3 className="text-2xl font-mono font-bold text-green-400 mb-4 tracking-wider">WEB3 BUILDERS MEETUP</h3>
-              <p className="text-gray-400 font-mono text-sm mb-6 leading-relaxed">
-                CONNECT WITH FELLOW BUILDERS, INVESTORS, AND INNOVATORS IN THE WEB3 SPACE.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-green-500 hover:bg-green-400 text-black font-mono font-bold px-8 tracking-wider">
-                  REGISTER NOW
-                </Button>
-                <Button className="bg-gray-900 hover:bg-gray-800 text-green-400 border border-gray-800 hover:border-green-500/30 font-mono tracking-wider">
-                  LEARN MORE
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+              </CardContent>
+            </Card> */}
         </div>
       </div>
     </div>
