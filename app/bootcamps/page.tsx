@@ -1,10 +1,18 @@
+"use client";
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import { ArrowLeft, Clock, Users, Trophy, Code } from "lucide-react"
+import { useState,useEffect } from "react";
+import { useAuth } from "@/context/AuthContext";
 
 export default function BootcampsPage() {
+  
+  const { role } = useAuth();
+  const showButton = role === "DevRel / Head of ecosystem" || role === "Community Lead";
+
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Grid Pattern Background */}
@@ -12,7 +20,7 @@ export default function BootcampsPage() {
 
 
 
-      <div className="container mx-auto px-6 py-20">
+      <div className="container mx-auto justify-items-center px-6 py-20">
         {/* Page Title */}
         <div className="text-center mb-20">
           <div className="w-16 h-16 mx-auto bg-green-500 rounded-full blur-xl opacity-60 animate-pulse mb-8"></div>
@@ -20,7 +28,13 @@ export default function BootcampsPage() {
           <p className="text-gray-500 font-mono text-sm tracking-wider max-w-2xl mx-auto">
             COMPREHENSIVE LEARNING PATHS FOR WEB3 MASTERY
           </p>
+          
         </div>
+
+        {showButton && (<Button className="mb-6 ml-[17vw] bg-green-500 hover:bg-green-400 rounded-xl h-[5vh] text-black font-mono font-bold px-8 py-3 tracking-wider">
+            POST A BOOTCAMP
+          </Button>)
+        }
 
         {/* Bootcamp Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">

@@ -4,23 +4,20 @@ import React, { useEffect, useState } from 'react'
 import Link from "next/link"
 import { Code } from 'lucide-react'
 import Modal from './ui/modals'
+import { useAuth } from '@/context/AuthContext'
 
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [authType, setAuthType] = useState<'login' | 'signup'>('login')
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState(''); 
   const [error, setError] = useState('');
   const [twitterLink, setTwitterLink] = useState('');
   const [telegram, setTelegram] = useState('');
-  const [role,setRole] = useState('');
-
-  useEffect(() => {
-    const token = localStorage.getItem('authToken')
-    setIsLoggedIn(!!token)
-  }, [])
+  const [userRole,setUserRole] = useState('');
+  const { role, login, logout, token } = useAuth()
+  const isLoggedIn = !!token
 
   const openModal = (type: 'login' | 'signup') => {
     setAuthType(type)
@@ -29,75 +26,57 @@ const Navbar = () => {
 
   const closeModal = () => setIsModalOpen(false)
 
-  const handleLogout = () => {
-    localStorage.removeItem('authToken')
-    setIsLoggedIn(false)
-  }
 
- const handleLoginSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+   const handleLoginSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    try {
+      const res = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      })
 
-  try {
-    const res = await fetch('/api/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
+      if (!res.ok) {
+        const error = await res.json()
+        console.error('Login error:', error)
+        return
+      }
 
-    if (!res.ok) {
-      const error = await res.json();
-      console.error('Login error:', error);
-      // You can show error message to user here
-      return;
+      const data = await res.json()
+      login(data.token, data.user.role)
+      closeModal()
+    } catch (err) {
+      console.error('Network error:', err)
     }
-
-    const data = await res.json();
-    console.log('Login successful:', data);
-    localStorage.setItem('authToken', data.token); // Save JWT
-    setIsLoggedIn(true); // Assuming you're using a state to track auth
-    closeModal(); // Close the login modal after success
-  } catch (err) {
-    console.error('Network error:', err);
   }
-};
 
 
-  const handleSignupSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setError('');
-  try {
-    const res = await fetch('/api/auth/signup', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        password,
-        twitterLink,
-        role,
-        telegram
-      }),
-    });
-    const data = await res.json();
-    console.log(data)
-    if (!res.ok) {
-      throw new Error(data.message || 'Signup failed');
+ const handleSignupSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setError('')
+    try {
+      const res = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+          twitterLink,
+          role: userRole,
+          telegram,
+        }),
+      })
+
+      const data = await res.json()
+      if (!res.ok) throw new Error(data.message || 'Signup failed')
+
+      login(data.token, data.user.role)
+      closeModal()
+    } catch (err: any) {
+      setError(err.message)
     }
-
-    localStorage.setItem('authToken', data.token);
-    setIsLoggedIn(true);
-    closeModal();
-  } catch (err: any) {
-    setError(err.message);
   }
-};
 
 
   return (
@@ -126,7 +105,7 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              <button onClick={handleLogout} className="text-xs font-mono text-red-500 hover:text-red-400">
+              <button onClick={logout} className="text-xs font-mono text-red-500 hover:text-red-400">
                 LOGOUT
               </button>
               <Link href="/profile" className="text-xs font-mono text-green-400 hover:text-green-300">
@@ -192,8 +171,8 @@ const Navbar = () => {
       required
     />
     <select
-      value={role}
-      onChange={(e) => setRole(e.target.value)}
+      value={userRole}
+      onChange={(e) => setUserRole(e.target.value)}
       className="border p-2 rounded bg-black border-green-500 text-green-400"
       required
     >

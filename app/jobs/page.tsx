@@ -1,10 +1,16 @@
+"use client";
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
 import { ArrowLeft, Briefcase, MapPin, Clock, Code } from "lucide-react"
+import {useState,useEffect} from "react";
+import { useAuth } from "@/context/AuthContext";
 
 export default function JobsPage() {
+  const { role } = useAuth();
+  
+    const showButton = role === "DevRel / Head of ecosystem" || role === "Community Lead";
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Grid Pattern Background */}
@@ -21,7 +27,10 @@ export default function JobsPage() {
         </div>
 
         {/* Job Listings */}
-        <div className="space-y-6 max-w-4xl mx-auto">
+        <div className="space-y-6 max-w-4xl mx-auto ">
+          {showButton && <Button className="mb-6 bg-green-500 hover:bg-green-400 rounded-xl h-[5vh] text-black font-mono font-bold px-8 py-3 tracking-wider">
+            POST A JOB
+          </Button>}
           <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all">
             <CardContent className="p-8">
               <div className="flex flex-col md:flex-row md:items-start justify-between mb-6">
