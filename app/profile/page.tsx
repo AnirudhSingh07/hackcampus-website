@@ -4,39 +4,33 @@ import { useState } from "react"
 import Link from "next/link"
 import {
   User,
-  Settings,
   Trophy,
   BookOpen,
-  Calendar,
   Award,
   Code,
-  Edit3,
-  MapPin,
   Mail,
-  Github,
-  Twitter,
-  Linkedin,
   ExternalLink,
   Clock,
   CheckCircle,
   Circle,
 } from "lucide-react"
+import { useAuth } from "@/context/AuthContext"
 
 export default function ProfilePage() {
   const [activeTab, setActiveTab] = useState("overview")
-
+  const { role, name, email } = useAuth()
   // Mock user data
   const user = {
-    name: "Alex Chen",
+    name: name,
     username: "@alexchen",
-    email: "alex.chen@example.com",
+    email: email,
     location: "Mumbai, India",
-    bio: "Full-stack developer passionate about Web3 and DeFi. Building the future of decentralized applications.",
+    bio: role,
     avatar: "/placeholder.svg?height=120&width=120&text=AC",
     joinDate: "March 2024",
     level: "Advanced",
-    xp: 2850,
-    nextLevelXp: 3000,
+    xp: 0,
+    nextLevelXp: 100,
     walletAddress: "0x742d35Cc6634C0532925a3b8D404d3aABF5F2681",
     social: {
       github: "alexchen",
@@ -46,93 +40,93 @@ export default function ProfilePage() {
   }
 
   const stats = [
-    { label: "Bootcamps Completed", value: "12", icon: BookOpen },
-    { label: "Bounties Earned", value: "₹45,000", icon: Trophy },
-    { label: "Projects Built", value: "8", icon: Code },
-    { label: "Community Rank", value: "#127", icon: Award },
+    { label: "Bootcamps Completed", value: "0", icon: BookOpen },
+    { label: "Bounties Earned", value: "$0", icon: Trophy },
+    { label: "Projects Built", value: "0", icon: Code },
+    { label: "Community Rank", value: "-", icon: Award },
   ]
 
   const completedBootcamps = [
-    {
-      title: "DeFi Development Mastery",
-      completion: "100%",
-      grade: "A+",
-      date: "Dec 2024",
-      skills: ["Solidity", "Uniswap", "Compound"],
-    },
-    {
-      title: "Smart Contract Security",
-      completion: "100%",
-      grade: "A",
-      date: "Nov 2024",
-      skills: ["Security", "Auditing", "Testing"],
-    },
-    {
-      title: "NFT Marketplace Development",
-      completion: "100%",
-      grade: "A+",
-      date: "Oct 2024",
-      skills: ["ERC-721", "IPFS", "React"],
-    },
+    // {
+    //   title: "DeFi Development Mastery",
+    //   completion: "100%",
+    //   grade: "A+",
+    //   date: "Dec 2024",
+    //   skills: ["Solidity", "Uniswap", "Compound"],
+    // },
+    // {
+    //   title: "Smart Contract Security",
+    //   completion: "100%",
+    //   grade: "A",
+    //   date: "Nov 2024",
+    //   skills: ["Security", "Auditing", "Testing"],
+    // },
+    // {
+    //   title: "NFT Marketplace Development",
+    //   completion: "100%",
+    //   grade: "A+",
+    //   date: "Oct 2024",
+    //   skills: ["ERC-721", "IPFS", "React"],
+    // },
   ]
 
   const currentBootcamps = [
-    {
-      title: "Advanced DeFi Protocols",
-      progress: 75,
-      nextDeadline: "Jan 15, 2025",
-      status: "In Progress",
-    },
-    {
-      title: "Layer 2 Solutions",
-      progress: 30,
-      nextDeadline: "Jan 20, 2025",
-      status: "In Progress",
-    },
+    // {
+    //   title: "Advanced DeFi Protocols",
+    //   progress: 75,
+    //   nextDeadline: "Jan 15, 2025",
+    //   status: "In Progress",
+    // },
+    // {
+    //   title: "Layer 2 Solutions",
+    //   progress: 30,
+    //   nextDeadline: "Jan 20, 2025",
+    //   status: "In Progress",
+    // },
   ]
 
   const achievements = [
-    {
-      title: "First Smart Contract",
-      description: "Deployed your first smart contract",
-      date: "Mar 2024",
-      rarity: "Common",
-    },
-    {
-      title: "DeFi Expert",
-      description: "Completed 5 DeFi bootcamps",
-      date: "Nov 2024",
-      rarity: "Rare",
-    },
-    {
-      title: "Bug Hunter",
-      description: "Found critical security vulnerability",
-      date: "Dec 2024",
-      rarity: "Epic",
-    },
-    {
-      title: "Community Leader",
-      description: "Helped 50+ students in forums",
-      date: "Dec 2024",
-      rarity: "Legendary",
-    },
+    // {
+    //   title: "First Smart Contract",
+    //   description: "Deployed your first smart contract",
+    //   date: "Mar 2024",
+    //   rarity: "Common",
+    // },
+    // {
+    //   title: "DeFi Expert",
+    //   description: "Completed 5 DeFi bootcamps",
+    //   date: "Nov 2024",
+    //   rarity: "Rare",
+    // },
+    // {
+    //   title: "Bug Hunter",
+    //   description: "Found critical security vulnerability",
+    //   date: "Dec 2024",
+    //   rarity: "Epic",
+    // },
+    // {
+    //   title: "Community Leader",
+    //   description: "Helped 50+ students in forums",
+    //   date: "Dec 2024",
+    //   rarity: "Legendary",
+    // },
   ]
 
   const projects = [
-    {
-      title: "DeFi Yield Aggregator",
-      description: "Multi-protocol yield farming optimizer with automated rebalancing",
-      tech: ["Solidity", "React", "Web3.js"],
-      status: "Live",
-      link: "https://github.com/alexchen/defi-aggregator",
-    },
-    {
-      title: "NFT Marketplace",
-      description: "Decentralized marketplace for digital art with royalty distribution",
-      tech: ["Next.js", "IPFS", "Polygon"],
-      status: "In Development",
-      link: "https://github.com/alexchen/nft-marketplace",
-    },
+    // {
+    //   title: "DeFi Yield Aggregator",
+    //   description: "Multi-protocol yield farming optimizer with automated rebalancing",
+    //   tech: ["Solidity", "React", "Web3.js"],
+    //   status: "Live",
+    //   link: "https://github.com/alexchen/defi-aggregator",
+    // },
+    // {
+    //   title: "NFT Marketplace",
+    //   description: "Decentralized marketplace for digital art with royalty distribution",
+    //   tech: ["Next.js", "IPFS", "Polygon"],
+    //   status: "In Development",
+    //   link: "https://github.com/alexchen/nft-marketplace",
+    // },
   ]
 
   const getRarityColor = (rarity: string) => {
@@ -158,68 +152,28 @@ export default function ProfilePage() {
         {/* Profile Header */}
         <div className="bg-gray-900/50 rounded-2xl border border-gray-800 p-8 mt-10 mb-8">
           <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-            <div className="relative">
-              <img
-                src={user.avatar || "/placeholder.svg"}
-                alt={user.name}
-                className="w-24 h-24 rounded-full border-2 border-green-400"
-              />
-              <div className="absolute -bottom-2 -right-2 bg-green-400 text-black px-2 py-1 rounded-full text-xs font-bold">
-                {user.level}
-              </div>
-            </div>
+            
 
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-2">
                 <h1 className="text-3xl font-bold">{user.name}</h1>
-                <span className="text-gray-400">{user.username}</span>
               </div>
 
               <p className="text-gray-300 mb-4 max-w-2xl">{user.bio}</p>
 
               <div className="flex flex-wrap items-center gap-4 text-sm text-gray-400 mb-4">
                 <div className="flex items-center gap-1">
-                  <MapPin className="w-4 h-4" />
-                  {user.location}
-                </div>
-                <div className="flex items-center gap-1">
                   <Mail className="w-4 h-4" />
                   {user.email}
-                </div>
-                <div className="flex items-center gap-1">
-                  <Calendar className="w-4 h-4" />
-                  Joined {user.joinDate}
                 </div>
               </div>
 
               {/* Social Links */}
-              <div className="flex items-center gap-3">
-                <a
-                  href={`https://github.com/${user.social.github}`}
-                  className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors"
-                >
-                  <Github className="w-4 h-4" />
-                </a>
-                <a
-                  href={`https://twitter.com/${user.social.twitter}`}
-                  className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors"
-                >
-                  <Twitter className="w-4 h-4" />
-                </a>
-                <a
-                  href={`https://linkedin.com/in/${user.social.linkedin}`}
-                  className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors"
-                >
-                  <Linkedin className="w-4 h-4" />
-                </a>
-              </div>
+              
             </div>
 
             <div className="text-right">
-              <button className="flex items-center gap-2 px-4 py-2 bg-green-600 hover:bg-green-700 rounded-lg transition-colors mb-4">
-                <Edit3 className="w-4 h-4" />
-                Edit Profile
-              </button>
+
                             {/* XP Progress */}
               <div className="bg-gray-800 rounded-lg p-4 min-w-[200px]">
                 <div className="flex justify-between items-center mb-2">
@@ -275,7 +229,7 @@ export default function ProfilePage() {
         <div className="space-y-8">
           {activeTab === "overview" && (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {/* Current Bootcamps */}
+
               <div className="bg-gray-900/50 rounded-xl border border-gray-800 p-6">
                 <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
                   <Clock className="w-5 h-5 text-green-400" />
@@ -306,7 +260,6 @@ export default function ProfilePage() {
                 </div>
               </div>
 
-              {/* Recent Achievements */}
               <div className="bg-gray-900/50 rounded-xl border border-gray-800 p-6">
                 <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
                   <Award className="w-5 h-5 text-green-400" />
@@ -336,7 +289,6 @@ export default function ProfilePage() {
           )}
                     {activeTab === "bootcamps" && (
             <div className="space-y-8">
-              {/* Completed Bootcamps */}
               <div className="bg-gray-900/50 rounded-xl border border-gray-800 p-6">
                 <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
                   <CheckCircle className="w-5 h-5 text-green-400" />
@@ -367,8 +319,6 @@ export default function ProfilePage() {
                   ))}
                 </div>
               </div>
-
-              {/* Current Bootcamps */}
               <div className="bg-gray-900/50 rounded-xl border border-gray-800 p-6">
                 <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
                   <Circle className="w-5 h-5 text-blue-400" />

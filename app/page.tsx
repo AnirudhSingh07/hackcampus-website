@@ -638,9 +638,11 @@ export default function HomePage() {
                       placeholder="Company email"
                       className="bg-gray-800 border-gray-700 text-white placeholder:text-gray-500 font-mono"
                     /> */}
+                    <Link href={"https://forms.gle/Fq5qR7vyGZ4JCrk47"}>
                     <Button className="bg-green-500 text-black hover:bg-green-400 font-bold font-mono tracking-wider">
                       GET STARTED
                     </Button>
+                    </Link>
                   </div>
                   <p className="text-sm text-gray-500 font-mono">JOIN LEADING WEB3 COMPANIES IN SHAPING THE FUTURE</p>
                 </div>

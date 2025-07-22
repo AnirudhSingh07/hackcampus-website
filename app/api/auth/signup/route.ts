@@ -35,6 +35,6 @@ export async function POST(req: NextRequest) {
 
   return NextResponse.json({
     token,
-    user: { role: newUser.role },
+    user: { role: newUser.role, name: newUser.name, email: newUser.email },
   }, { status: 201 })
 }

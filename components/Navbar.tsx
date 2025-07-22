@@ -38,7 +38,7 @@ const Navbar = () => {
       })
       const data = await res.json()
       if (!res.ok) return setError(data.error)
-      login(data.token, data.user.role)
+      login(data.token, data.user.role, data.user.name, data.user.email)
       closeModal()
     } catch (err) {
       console.error('Network error:', err)
@@ -63,7 +63,7 @@ const Navbar = () => {
       })
       const data = await res.json()
       if (!res.ok) return setError(data.error)
-      login(data.token, data.user.role)
+      login(data.token, data.user.role, data.user.name, data.user.email)
       closeModal()
     } catch (err) {
       console.log(err)
