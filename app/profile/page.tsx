@@ -1,7 +1,6 @@
  "use client"
 
 import { useState } from "react"
-import Link from "next/link"
 import {
   User,
   Trophy,
@@ -15,11 +14,15 @@ import {
   Circle,
 } from "lucide-react"
 import { useAuth } from "@/context/AuthContext"
+import { useRouter } from "next/navigation"
 
 export default function ProfilePage() {
+  const router = useRouter()
   const [activeTab, setActiveTab] = useState("overview")
   const { role, name, email } = useAuth()
-  // Mock user data
+  if (!role || !name || !email) {
+    router.push("/");
+  }
   const user = {
     name: name,
     username: "@alexchen",

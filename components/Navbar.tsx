@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { useAuth } from '@/context/AuthContext'
+import Loader from './Loader'
 
 const Navbar = () => {
   const [email, setEmail] = useState('')
@@ -14,6 +15,7 @@ const Navbar = () => {
   const [telegram, setTelegram] = useState('')
   const [userRole, setUserRole] = useState('')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [isLoading,setIsLoading] = useState(false);
 
   const {
     role,
@@ -30,6 +32,7 @@ const Navbar = () => {
 
   const handleLoginSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsLoading(true)
     try {
       const res = await fetch('/api/auth/login', {
         method: 'POST',
@@ -40,13 +43,16 @@ const Navbar = () => {
       if (!res.ok) return setError(data.error)
       login(data.token, data.user.role, data.user.name, data.user.email)
       closeModal()
+      setIsLoading(false)
     } catch (err) {
       console.error('Network error:', err)
+      setIsLoading(false)
     }
   }
 
   const handleSignupSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setIsLoading(true)
     setError('')
     try {
       const res = await fetch('/api/auth/signup', {
@@ -65,13 +71,16 @@ const Navbar = () => {
       if (!res.ok) return setError(data.error)
       login(data.token, data.user.role, data.user.name, data.user.email)
       closeModal()
+      setIsLoading(false)
     } catch (err) {
       console.log(err)
+      setIsLoading(false)
     }
   }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
+      { isLoading && <Loader />}
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <img src="/logohtihti.png" alt="Logo" className="h-10 w-auto" />
@@ -157,6 +166,27 @@ const Navbar = () => {
                     <option value="Community Lead">Community Lead</option>
                     <option value="DevRel / Head of ecosystem">DevRel / Head of Ecosystem</option>
                   </select>
+                  <div className="text-sm text-green-400">
+  <p className="mb-2">
+    Join our Telegram community for regular updates:{" "}
+    <a
+      href="https://t.me/+egERkiX-sikwYTNl"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="underline text-blue-400"
+    >
+      <br />
+      HackTour IND Telegram Community
+    </a>
+  </p>
+  <label className="flex items-center space-x-2">
+    <input
+      type="checkbox"
+      required
+    />
+    <span>I have joined the Telegram group</span>
+  </label>
+</div>
                   <p className="text-sm text-red-400 text-center">{error}</p>
                   <button type="submit" className="bg-green-500 text-white py-2 rounded">Signup</button>
                 </form>
