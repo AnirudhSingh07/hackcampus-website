@@ -76,6 +76,9 @@ export default function JobsPage() {
                   VIEW DETAILS
                 </Button>
               </div>
+
+
+              
             </CardContent>
           </Card> */}
 
