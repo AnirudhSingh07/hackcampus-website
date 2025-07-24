@@ -42,11 +42,11 @@ export default function HomePage() {
         <div className="container mx-auto px-4 lg:px-6 relative">
           <div className="text-center max-w-4xl mx-auto">
             {/* Glowing Green Orb */}
-            <div className="relative mb-12 flex justify-center">
+            <div className="relative flex justify-center">
   <img
-    src="/logohtihti.png"
+    src="/hcilogo1.png"
     alt="Logo"
-    className="h-[10vh] w-auto sm:h-[12vh] md:h-[15vh] max-w-[80%]"
+    className="h-[25vh] w-auto sm:h-[25vh] md:h-[45vh] max-w-[90%]"
   />
 </div>
 
