@@ -10,7 +10,7 @@ import User from "@/models/User";
 export async function POST(req: Request) {
   await connectToDatabase();
   const { email } = await req.json();
-  const resend = new Resend('re_2jUq6Eei_Br8MuCBCBrNXRTLV9GvLZULM');
+  const resend = new Resend(process.env.RESEND_API_KEY);
   if (!email) return NextResponse.json({ error: "Email required" }, { status: 400 });
 
   // Block if already a user (optional, depending on flow)
