@@ -2,30 +2,46 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import Link from "next/link"
-import { ArrowLeft, Calendar, MapPin, Code } from "lucide-react"
-import { useState, useEffect } from "react";
+import { Calendar, MapPin } from "lucide-react"
+import { useEffect, useState } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 
 export default function EventsPage() {
-  
-  const { role,openModal } = useAuth();
-  const showButton = role === "DevRel / Head of ecosystem" || role === "Community Lead";
+  const { role, openModal } = useAuth();
+  const showButton =
+    role === "DevRel / Head of ecosystem" || role === "Community Lead";
   const router = useRouter();
-  useEffect(()=> {
-    if ( role == null) {
-      router.push("/");
-      openModal("login");
-    }
-  },[])
+
+  const [checkedAuth, setCheckedAuth] = useState(false);
+
+  useEffect(() => {
+    // Wait for auth context to load localStorage
+    const timer = setTimeout(() => {
+      if (!role) {
+        router.push("/");
+        openModal("login");
+      }
+      setCheckedAuth(true);
+    }, 200); // small delay to allow context to load
+
+    return () => clearTimeout(timer);
+  }, [role]);
+
+  if (!checkedAuth && !role) {
+    // Optional: simple loading screen to prevent flash
+    return <div className="min-h-screen bg-black text-white flex items-center justify-center">Loading...</div>;
+  }
+
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Grid Pattern Background */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,0,0.02)_1px,transparent_1px)] bg-[size:100px_100px]"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,0,0.02)_1px,transparent_1px),
+                                          linear-gradient(90deg,rgba(0,255,0,0.02)_1px,transparent_1px)] 
+                      bg-[size:100px_100px] pointer-events-none">
+      </div>
 
-
-      <div className="container mx-auto px-6 py-20">
+      <div className="container mx-auto px-6 py-20 relative z-10">
         {/* Page Title */}
         <div className="text-center mb-20">
           <div className="w-16 h-16 mx-auto bg-green-500 rounded-full blur-xl opacity-60 animate-pulse mb-8"></div>
@@ -37,9 +53,15 @@ export default function EventsPage() {
 
         {/* Upcoming Events */}
         <div className="space-y-8 max-w-4xl mx-auto">
-         {showButton && <Button className="mb-6 bg-green-500 hover:bg-green-400 rounded-xl h-[5vh] text-black font-mono font-bold px-8 py-3 tracking-wider">
-            POST A BOUNTY
-          </Button>}
+          {showButton && (
+            <Button
+              onClick={() => router.push("https://forms.gle/B9qPE226aJjGRqwV8")}
+              className="mb-6 bg-green-500 hover:bg-green-400 rounded-xl h-[5vh] text-black font-mono font-bold px-8 py-3 tracking-wider"
+            >
+              POST A BOUNTY
+            </Button>
+          )}
+
           <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all">
             <CardContent className="p-8">
               <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
@@ -57,90 +79,24 @@ export default function EventsPage() {
                   Remote
                 </div>
               </div>
-              <h3 className="text-2xl font-mono font-bold text-green-400 mb-4 tracking-wider">Twitter/X Thread Writing</h3>
+              <h3 className="text-2xl font-mono font-bold text-green-400 mb-4 tracking-wider">
+                Twitter/X Thread Writing
+              </h3>
               <p className="text-gray-400 font-mono text-sm mb-6 leading-relaxed">
                 Your task is to write a Twitter/X thread about HackCampus to spread awareness and engage the community.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button onClick={() => {
-                  router.push("bounty/twitter-x-thread-writing-bounty")
-                }} className="bg-green-500 hover:bg-green-400 text-black font-mono font-bold px-8 tracking-wider">
+                <Button
+                  onClick={() => router.push("bounty/twitter-x-thread-writing-bounty")}
+                  className="bg-green-500 hover:bg-green-400 text-black font-mono font-bold px-8 tracking-wider"
+                >
                   Participate
                 </Button>
-                {/* <Button className="bg-gray-900 hover:bg-gray-800 text-green-400 border border-gray-800 hover:border-green-500/30 font-mono tracking-wider">
-                  LEARN MORE
-                </Button> */}
               </div>
             </CardContent>
           </Card>
-
-          {/* <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all">
-            <CardContent className="p-8">
-              <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
-                <div className="flex items-center space-x-4 mb-4 md:mb-0">
-                  <Badge className="bg-blue-500/10 text-blue-400 border border-blue-500/20 font-mono text-xs tracking-wider">
-                    WORKSHOP
-                  </Badge>
-                  <div className="flex items-center text-xs text-gray-500 font-mono">
-                    <Calendar className="w-3 h-3 mr-1" />
-                    MAR 22, 2024
-                  </div>
-                </div>
-                <div className="flex items-center text-xs text-gray-500 font-mono">
-                  <MapPin className="w-3 h-3 mr-1" />
-                  BANGALORE, KARNATAKA
-                </div>
-              </div>
-              <h3 className="text-2xl font-mono font-bold text-green-400 mb-4 tracking-wider">
-                SMART CONTRACT SECURITY
-              </h3>
-              <p className="text-gray-400 font-mono text-sm mb-6 leading-relaxed">
-                LEARN BEST PRACTICES FOR SECURE SMART CONTRACT DEVELOPMENT WITH INDUSTRY EXPERTS.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-green-500 hover:bg-green-400 text-black font-mono font-bold px-8 tracking-wider">
-                  REGISTER NOW
-                </Button>
-                <Button className="bg-gray-900 hover:bg-gray-800 text-green-400 border border-gray-800 hover:border-green-500/30 font-mono tracking-wider">
-                  LEARN MORE
-                </Button>
-              </div>
-            </CardContent>
-          </Card> */}
-
-            {/* <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all">
-              <CardContent className="p-8">
-                <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
-                  <div className="flex items-center space-x-4 mb-4 md:mb-0">
-                    <Badge className="bg-purple-500/10 text-purple-400 border border-purple-500/20 font-mono text-xs tracking-wider">
-                      NETWORKING
-                    </Badge>
-                    <div className="flex items-center text-xs text-gray-500 font-mono">
-                      <Calendar className="w-3 h-3 mr-1" />
-                      APR 05, 2024
-                    </div>
-                  </div>
-                  <div className="flex items-center text-xs text-gray-500 font-mono">
-                    <MapPin className="w-3 h-3 mr-1" />
-                    DELHI, NCR
-                  </div>
-                </div>
-                <h3 className="text-2xl font-mono font-bold text-green-400 mb-4 tracking-wider">WEB3 BUILDERS MEETUP</h3>
-                <p className="text-gray-400 font-mono text-sm mb-6 leading-relaxed">
-                  CONNECT WITH FELLOW BUILDERS, INVESTORS, AND INNOVATORS IN THE WEB3 SPACE.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button className="bg-green-500 hover:bg-green-400 text-black font-mono font-bold px-8 tracking-wider">
-                    REGISTER NOW
-                  </Button>
-                  <Button className="bg-gray-900 hover:bg-gray-800 text-green-400 border border-gray-800 hover:border-green-500/30 font-mono tracking-wider">
-                    LEARN MORE
-                  </Button>
-                </div>
-              </CardContent>
-            </Card> */}
         </div>
       </div>
     </div>
-  )
+  );
 }

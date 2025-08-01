@@ -20,6 +20,7 @@ export default function ProfilePage() {
   const router = useRouter()
   const [activeTab, setActiveTab] = useState("overview")
   const { role, name, email } = useAuth()
+  console.log(role,name,email);
   if (!role || !name || !email) {
     router.push("/");
   }

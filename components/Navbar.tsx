@@ -226,13 +226,6 @@ const Navbar = () => {
             </>
           ) : (
             <>
-              {(role === 'Community Lead' || role === 'DevRel / Head of ecosystem') && (
-                <Link href="/bootcamps/new">
-                  <button className="text-xs font-mono bg-green-500 text-black px-4 py-2 rounded hover:bg-green-400 transition">
-                    POST A BOOTCAMP
-                  </button>
-                </Link>
-              )}
               <button onClick={logout} className="text-xs font-mono text-red-500 hover:text-red-400">
                 LOGOUT
               </button>
