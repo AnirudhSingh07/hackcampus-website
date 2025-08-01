@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react'
 import Link from "next/link"
 import Modal from './ui/modals'
 import { useAuth } from '@/context/AuthContext'
+import { set } from 'mongoose'
+import Loader from './Loader'
 
 const RESEND_COOLDOWN = 60; // seconds
 
@@ -75,6 +77,7 @@ const Navbar = () => {
       const data = await res.json();
 
       if (!res.ok) {
+        setLoading(false);
         setError(data.error || 'Login failed');
         return;
       }
@@ -200,6 +203,7 @@ const Navbar = () => {
 
   return (
     <header className="absolute top-0 z-50 w-full">
+      {loading && <Loader />}
       <div className="container mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center space-x-2">
           <img src="/logohtihti.png" alt="" className='h-[5vh] w-[8vw]' />
@@ -207,7 +211,7 @@ const Navbar = () => {
 
         <nav className="hidden md:flex items-center space-x-8">
           <Link href="/bootcamps" className="text-xs font-mono text-gray-500 hover:text-green-400 transition-colors tracking-wider">BOOTCAMPS</Link>
-          <Link href="/community" className="text-xs font-mono text-gray-500 hover:text-green-400 transition-colors tracking-wider">COMMUNITY</Link>
+          <Link href="/bounty" className="text-xs font-mono text-gray-500 hover:text-green-400 transition-colors tracking-wider">BOUNTIES</Link>
           <Link href="/events" className="text-xs font-mono text-gray-500 hover:text-green-400 transition-colors tracking-wider">EVENTS</Link>
           <Link href="/jobs" className="text-xs font-mono text-gray-500 hover:text-green-400 transition-colors tracking-wider">JOBS</Link>
 
@@ -249,7 +253,7 @@ const Navbar = () => {
               <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Password" className="p-2 bg-black border border-green-500 rounded text-green-400" required />
               {error && <p className="text-sm text-red-400 text-center">{error}</p>}
               <button disabled={loading} type="submit" className="bg-green-500 text-black py-2 rounded disabled:opacity-50">
-                {loading ? 'Logging in...' : 'Login'}
+                Sign in
               </button>
             </form>
           </div>
@@ -274,7 +278,7 @@ const Navbar = () => {
                 {error && <p className="text-sm text-red-400 text-center">{error}</p>}
 
                 <button disabled={loading} type="submit" className="bg-green-500 text-white py-2 rounded disabled:opacity-50">
-                  {loading ? 'Sending OTP...' : 'Send OTP'}
+                  Send OTP
                 </button>
               </form>
             )}
@@ -318,7 +322,7 @@ const Navbar = () => {
                   </button>
 
                   <button disabled={loading} type="submit" className="bg-green-500 text-white py-2 px-4 rounded disabled:opacity-50">
-                    {loading ? 'Verifying...' : 'Verify & Signup'}
+                    Verify & Signup
                   </button>
                 </div>
               </form>

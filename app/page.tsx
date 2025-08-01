@@ -18,13 +18,26 @@ import {
   Globe,
   Code,
   Briefcase,
+  ReceiptPoundSterling,
 } from "lucide-react"
 import Link from "next/link"
-import Navbar from "@/components/Navbar"
 import { useAuth } from "@/context/AuthContext"
+import { useRouter } from "next/navigation"
 
 export default function HomePage() {
-  const { openModal } = useAuth()
+  const { openModal,token } = useAuth()
+  const isLoggedIn = !!token;
+  const router = useRouter();
+  const handleExploreButton = () => {
+    if(isLoggedIn)
+    {
+      router.push("/bootcamps")
+    }
+    else {
+      openModal('signup');
+      return;
+    }
+  }
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Subtle Grid Pattern Background */}
@@ -66,10 +79,10 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Button 
                 size="lg"
-                onClick={() => openModal('signup')}
+                onClick={handleExploreButton}
                 className="bg-green-500 hover:bg-green-400 text-black font-bold px-12 py-4 text-lg shadow-2xl shadow-green-500/25 hover:shadow-green-400/25 transition-all transform hover:scale-105 font-mono tracking-wider"
               >
-                JOIN HACKCAMPUS
+                EXPLORE HACKCAMPUS
               </Button>
               <Link href="https://t.me/+lXfUskeOZiZhNGZl">
               <Button

@@ -6,11 +6,19 @@ import Link from "next/link"
 import { ArrowLeft, Calendar, MapPin, Code } from "lucide-react"
 import { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
 
 export default function EventsPage() {
   
-  const { role } = useAuth();
-    const showButton = role === "DevRel / Head of ecosystem" || role === "Community Lead";
+  const { role,openModal } = useAuth();
+  const showButton = role === "DevRel / Head of ecosystem" || role === "Community Lead";
+  const router = useRouter();
+  useEffect(()=> {
+    if ( role == null) {
+      router.push("/");
+      openModal("login");
+    }
+  },[])
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       {/* Grid Pattern Background */}
@@ -21,41 +29,43 @@ export default function EventsPage() {
         {/* Page Title */}
         <div className="text-center mb-20">
           <div className="w-16 h-16 mx-auto bg-green-500 rounded-full blur-xl opacity-60 animate-pulse mb-8"></div>
-          <h1 className="text-4xl lg:text-6xl font-mono font-bold mb-6 tracking-wider">EVENTS</h1>
+          <h1 className="text-4xl lg:text-6xl font-mono font-bold mb-6 tracking-wider">BOUNTIES</h1>
           <p className="text-gray-500 font-mono text-sm tracking-wider max-w-2xl mx-auto">
-            IRL HACKATHONS • WORKSHOPS • NETWORKING
+            Content • Design • Development
           </p>
         </div>
 
         {/* Upcoming Events */}
         <div className="space-y-8 max-w-4xl mx-auto">
          {showButton && <Button className="mb-6 bg-green-500 hover:bg-green-400 rounded-xl h-[5vh] text-black font-mono font-bold px-8 py-3 tracking-wider">
-            POST AN EVENT
+            POST A BOUNTY
           </Button>}
           <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all">
             <CardContent className="p-8">
               <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
                 <div className="flex items-center space-x-4 mb-4 md:mb-0">
                   <Badge className="bg-red-500/10 text-red-400 border border-red-500/20 font-mono text-xs tracking-wider">
-                    LIVE
+                    Upcoming
                   </Badge>
                   <div className="flex items-center text-xs text-gray-500 font-mono">
                     <Calendar className="w-3 h-3 mr-1" />
-                    Sept, 2025
+                    1st - 12th August, 2025
                   </div>
                 </div>
                 <div className="flex items-center text-xs text-gray-500 font-mono">
                   <MapPin className="w-3 h-3 mr-1" />
-                  Delhi
+                  Remote
                 </div>
               </div>
-              <h3 className="text-2xl font-mono font-bold text-green-400 mb-4 tracking-wider">WEB3 INDIA HACKATHON - HACKTOUR IND</h3>
+              <h3 className="text-2xl font-mono font-bold text-green-400 mb-4 tracking-wider">Twitter/X Thread Writing</h3>
               <p className="text-gray-400 font-mono text-sm mb-6 leading-relaxed">
-                72-HOUR HACKATHON FOCUSED ON DEFI, DEV TOOLS, WEB3 PROJECTS & INNOVATIONS. BUILD, LEARN, AND WIN AMAZING PRIZES.
+                Your task is to write a Twitter/X thread about HackCampus to spread awareness and engage the community.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button className="bg-green-500 hover:bg-green-400 text-black font-mono font-bold px-8 tracking-wider">
-                  Coming Soon
+                <Button onClick={() => {
+                  router.push("bounty/twitter-x-thread-writing-bounty")
+                }} className="bg-green-500 hover:bg-green-400 text-black font-mono font-bold px-8 tracking-wider">
+                  Participate
                 </Button>
                 {/* <Button className="bg-gray-900 hover:bg-gray-800 text-green-400 border border-gray-800 hover:border-green-500/30 font-mono tracking-wider">
                   LEARN MORE
