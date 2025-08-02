@@ -2,11 +2,30 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
 
 export default function EventsPage() {
-  const { role, token } = useAuth();
+  const { role, token, openModal } = useAuth();
   const showButton =
     role === "DevRel / Head of ecosystem" || role === "Community Lead";
+  const router = useRouter();
+  const [checkedAuth, setCheckedAuth] = useState(false);
+
+  useEffect(() => {
+    // Wait for auth context to load localStorage
+    const timer = setTimeout(() => {
+      if (!role) {
+        router.push("/");
+        openModal("login");
+      }
+      setCheckedAuth(true);
+    }, 200); // small delay to allow context to load
+
+    return () => clearTimeout(timer);
+  }, [role]);
+
+    
+
 
   const [threadLink, setThreadLink] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -60,6 +79,11 @@ export default function EventsPage() {
       alert("Failed to submit thread. Try again later.");
     }
   };
+
+  if (!checkedAuth && !role) {
+    // Optional: simple loading screen to prevent flash
+    return <div className="min-h-screen bg-black text-white flex items-center justify-center">Loading...</div>;
+  }
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
