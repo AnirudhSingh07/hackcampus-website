@@ -7,6 +7,7 @@ import Link from "next/link"
 import { ArrowLeft, Clock, Users, Trophy, Code } from "lucide-react"
 import { useState,useEffect } from "react";
 import { useAuth } from "@/context/AuthContext";
+import Image from "next/image"
 
 export default function BootcampsPage() {
   
@@ -38,38 +39,50 @@ export default function BootcampsPage() {
         
 
         {/* Bootcamp Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-items-center gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 justify-items-center gap-8 max-w-6xl mx-auto">
           {/* Web3 Fundamentals */}
-          {/* <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all group">
+          <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 w-[50vw] transition-all group">
             <CardHeader className="pb-4">
               <div className="flex items-center justify-between mb-4">
                 <Badge className="bg-green-500/10 text-green-400 border border-green-500/20 font-mono text-xs tracking-wider">
                   BEGINNER
                 </Badge>
-                <div className="flex items-center text-xs text-gray-600 font-mono">
+                {/* <div className="flex items-center text-xs text-gray-600 font-mono">
                   <Clock className="w-3 h-3 mr-1" />
                   4W
-                </div>
+                </div> */}
               </div>
-              <CardTitle className="text-lg text-green-400 font-mono tracking-wider">WEB3 FUNDAMENTALS</CardTitle>
+              <CardTitle className="text-lg text-green-400 font-mono tracking-wider">WEB3 FUNDAMENTALS - Bootcamp 01</CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
-              <p className="text-gray-500 text-sm font-mono">BLOCKCHAIN • DEFI • NFTS</p>
               <div className="flex items-center justify-between text-xs text-gray-600 font-mono">
-                <div className="flex items-center">
+                {/* <div className="flex items-center">
                   <Users className="w-3 h-3 mr-1" />
                   1.2K
-                </div>
-                <div className="flex items-center">
+                </div> */}
+                {/* <div className="flex items-center">
                   <Trophy className="w-3 h-3 mr-1 text-green-500" />
                   CERT
-                </div>
+                </div> */}
+                <div className="relative w-full h-96 rounded-xl overflow-hidden group">
+                                      <Image
+                                        src="/Web3Fundamentals.png"
+                                        alt={`Thumbnail`}
+                                        fill
+                                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                                      />
+                                      <div className="absolute inset-0 flex items-center justify-center bg-black/40 group-hover:bg-black/50 transition">
+                  
+                                      </div>
+                                    </div>
               </div>
-              <Button className="w-full bg-gray-900 hover:bg-gray-800 text-green-400 border border-gray-800 hover:border-green-500/30 font-mono text-xs tracking-wider">
-                ENROLL
+              <Link href="/web3Fundamentals"><Button className="w-full bg-gray-900 hover:bg-gray-800 text-green-400 border border-gray-800 hover:border-green-500/30 font-mono text-xs tracking-wider">
+                Get Started
+               
               </Button>
+              </Link> 
             </CardContent>
-          </Card> */}
+          </Card>
 
           {/* Smart Contract Development */}
           {/* <Card className="border border-gray-900 bg-black/50 backdrop-blur-sm hover:border-green-500/30 transition-all group">
