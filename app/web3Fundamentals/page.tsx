@@ -189,7 +189,7 @@ export default function BootcampsPage() {
                         Watch on YouTube
                       </Link>
                     </Button>
-                    <Link href={notesLink} target="_blank">
+                    <Link href="/notes">
                     <Button className="w-full bg-green-600 hover:bg-green-500 text-black font-mono font-bold text-xs tracking-wider">
                         View Notes
                     </Button>
