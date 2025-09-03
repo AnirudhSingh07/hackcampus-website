@@ -11,6 +11,10 @@ export default function BootcampsPage() {
   const { role } = useAuth();
   const showButton = role === "DevRel / Head of ecosystem" || role === "Community Lead";
 
+  // Google Drive Notes Link
+  const notesLink =
+    "https://drive.google.com/file/d/1mQ836Jja59XuI4lKM3XlFgQbt1hPtL7R/view?usp=drive_link";
+
   // Bootcamp data (add as many as you want)
   const bootcamps = [
     {
@@ -18,7 +22,6 @@ export default function BootcampsPage() {
       level: "BEGINNER",
       youtubeLink: "https://youtu.be/_boLwTOycDk",
     },
-    
     {
       title: "What is Web1?",
       level: "BEGINNER",
@@ -104,7 +107,6 @@ export default function BootcampsPage() {
       level: "BEGINNER",
       youtubeLink: "https://youtu.be/dRLEW3jS5mM",
     },
-
   ];
 
   // Function to extract YouTube video ID from link
@@ -180,11 +182,19 @@ export default function BootcampsPage() {
                     </div>
                   </Link>
 
-                  <Button className="w-full bg-gray-900 hover:bg-gray-800 text-green-400 border border-gray-800 hover:border-green-500/30 font-mono text-xs tracking-wider">
-                    <Link href={bootcamp.youtubeLink} target="_blank">
-                      Watch on YouTube
+                  {/* Buttons */}
+                  <div className="flex flex-col gap-3">
+                    <Button className="w-full bg-gray-900 hover:bg-gray-800 text-green-400 border border-gray-800 hover:border-green-500/30 font-mono text-xs tracking-wider">
+                      <Link href={bootcamp.youtubeLink} target="_blank">
+                        Watch on YouTube
+                      </Link>
+                    </Button>
+                    <Link href={notesLink} target="_blank">
+                    <Button className="w-full bg-green-600 hover:bg-green-500 text-black font-mono font-bold text-xs tracking-wider">
+                        View Notes
+                    </Button>
                     </Link>
-                  </Button>
+                  </div>
                 </CardContent>
               </Card>
             );

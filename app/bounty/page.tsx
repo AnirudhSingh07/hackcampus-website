@@ -66,8 +66,8 @@ export default function EventsPage() {
             <CardContent className="p-8">
               <div className="flex flex-col md:flex-row md:items-center justify-between mb-6">
                 <div className="flex items-center space-x-4 mb-4 md:mb-0">
-                  <Badge className="bg-red-500/10 text-red-400 border border-red-500/20 font-mono text-xs tracking-wider">
-                    Upcoming
+                  <Badge className="bg-red-500/10 text-yellow-400 border border-red-500/20 font-mono text-xs tracking-wider">
+                    Completed
                   </Badge>
                   <div className="flex items-center text-xs text-gray-500 font-mono">
                     <Calendar className="w-3 h-3 mr-1" />
