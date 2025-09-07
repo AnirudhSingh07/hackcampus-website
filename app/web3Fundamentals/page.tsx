@@ -90,7 +90,7 @@ export default function BootcampsPage() {
     {
       title: "What are DApps?",
       level: "BEGINNER",
-      youtubeLink: "https://youtu.be/_jeXRN-b_Mk",
+      youtubeLink: "https://youtu.be/PdKjvoGVyqE",
     },
     {
       title: "TestNet & Mainnets",
@@ -100,7 +100,7 @@ export default function BootcampsPage() {
     {
       title: "Types of DApps",
       level: "BEGINNER",
-      youtubeLink: "https://youtu.be/bfyxYs1tKok",
+      youtubeLink: "https://youtu.be/_jeXRN-b_Mk",
     },
     {
       title: "Types Of Blockchain",
