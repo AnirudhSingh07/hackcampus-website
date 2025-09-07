@@ -90,7 +90,7 @@ export default function BootcampsPage() {
     {
       title: "What are DApps?",
       level: "BEGINNER",
-      youtubeLink: "https://youtu.be/jg4aQeJyD7U",
+      youtubeLink: "https://youtu.be/_jeXRN-b_Mk",
     },
     {
       title: "TestNet & Mainnets",
